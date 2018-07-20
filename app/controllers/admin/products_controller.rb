@@ -24,8 +24,17 @@ class Admin::ProductsController < ApplicationController
     redirect_to [:admin, :products], notice: 'Product deleted!'
   end
 
-  private
+  before_filter :authorize
 
+  def cool
+  end
+
+  def free
+  end
+
+  
+  private
+  
   def product_params
     params.require(:product).permit(
       :name,
@@ -34,7 +43,7 @@ class Admin::ProductsController < ApplicationController
       :quantity,
       :image,
       :price
-    )
+      )
   end
-
 end
+    

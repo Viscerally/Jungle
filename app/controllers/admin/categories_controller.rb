@@ -13,20 +13,28 @@ class Admin::CategoriesController < ApplicationController
 
   end
 
+  before_filter :authorize
 
+  def cool
+  end
+
+  def free
+  end
+
+  
   
   def index
     @categories = Category.order(name: :desc).all
   end
-
+  
   private
-
+  
   def category_params
     params.require(:category).permit(
       :name
-    )
-  end
-
-
+      )
+    end
+    
 end
+
 
