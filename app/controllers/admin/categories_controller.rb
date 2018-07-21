@@ -1,4 +1,7 @@
 class Admin::CategoriesController < ApplicationController
+
+  http_basic_authenticate_with name:  ENV['AUTH_NAME'], password: ENV['AUTH_PASS']
+  
   def new
     @categories = Category.new
   end
